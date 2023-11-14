@@ -37,5 +37,23 @@ public class OutputView {
         if(!present){
             System.out.println("없음");
         }
+        System.out.println();
     }
+    static void printDiscount(int christmasDiscount, int weekendDiscount, int weekdayDiscount,int specialDiscount, boolean present){
+        System.out.println("<혜택 내역>");
+        String str;
+        if(christmasDiscount != 0 ){
+            str = String.format("%,d",christmasDiscount);
+            System.out.println("크리스마드 디데이 할인: -"+str+"원");
+        } if(weekdayDiscount != 0 ){
+            str = String.format("%,d",weekdayDiscount);
+            System.out.println("평일 할인: -"+str+"원");
+        } if(specialDiscount != 0 ){
+            str = String.format("%,d",specialDiscount);
+            System.out.println("특별 할인: -"+str+"원");
+        } if(present)
+            System.out.println("증정 이벤트: -25,000원");
+        System.out.println();
+    }
+    static void printTotalDiscount
 }

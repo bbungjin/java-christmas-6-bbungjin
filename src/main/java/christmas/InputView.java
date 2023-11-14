@@ -12,8 +12,8 @@ public class InputView {
         String input = Console.readLine();
         String[] day = {"목","금","토","일","월","화","수"};
         String inputDay = day[Integer.parseInt(input)% 7];
-        Discount discount = new Discount(input,inputDay);
-        discount.TotalAmount(readMenu(Integer.parseInt(input)));
+        Discount discount = new Discount();
+        discount.TotalAmount(readMenu(Integer.parseInt(input)),input, inputDay);
         return 1;
     }
 
