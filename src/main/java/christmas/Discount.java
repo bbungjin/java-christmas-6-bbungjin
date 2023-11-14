@@ -1,5 +1,7 @@
 package christmas;
 
+import java.util.HashMap;
+
 public class Discount {
     int christmasDiscount;
     public Discount(String input, String inputDay){
@@ -9,5 +11,7 @@ public class Discount {
             christmasDiscount=(day-1)*100+1000;
         }
     }
+    public void TotalAmount(HashMap<String, Integer> menuMap){
 
+    }
 }
