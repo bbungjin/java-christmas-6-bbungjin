@@ -70,4 +70,18 @@ public class OutputView {
         System.out.println(str+"원");
         System.out.println();
     }
+    static void printBadge(int totalDiscount){
+        String badge="없음";
+        if(totalDiscount >= 5000){
+            badge = "별";
+        }
+        if(totalDiscount >= 10000){
+            badge = "트리";
+        }
+        if(totalDiscount >= 20000){
+            badge = "산타";
+        }
+        System.out.println("<12월 이벤트 배지>");
+        System.out.println(badge);
+    }
 }

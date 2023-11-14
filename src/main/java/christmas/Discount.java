@@ -76,6 +76,7 @@ public class Discount {
         OutputView.printDiscount(christmasDiscount, weekendDiscount, weekdayDiscount, specialDiscount, present);
         totalDiscount();
         OutputView.printTotalCost(totalDiscount,total,present);
+        OutputView.printBadge(totalDiscount);
     }
     public void totalDiscount(){
         totalDiscount = christmasDiscount+weekdayDiscount+weekendDiscount+specialDiscount;
