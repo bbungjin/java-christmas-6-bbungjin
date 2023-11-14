@@ -53,7 +53,21 @@ public class OutputView {
             System.out.println("특별 할인: -"+str+"원");
         } if(present)
             System.out.println("증정 이벤트: -25,000원");
+    }
+    static void printTotalDiscount(int totalDiscount){
+        System.out.println();
+        System.out.println("<총혜택 금액>");
+        String str = String.format("%,d",totalDiscount);
+        System.out.println("-"+str+"원");
         System.out.println();
     }
-    static void printTotalDiscount
+    static void printTotalCost(int totalDiscount, int total, boolean present){
+        System.out.println("<할인 후 예상 결제 금액>");
+        if(present){
+            total+=25000;
+        }
+        String str = String.format("%,d",total-totalDiscount);
+        System.out.println(str+"원");
+        System.out.println();
+    }
 }

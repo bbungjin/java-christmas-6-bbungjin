@@ -67,18 +67,22 @@ public class Discount {
             }
             // 메뉴에 없는 주문 예외처리
         }
+        calculate(input,inputDay);
+    }
+    public void calculate(String input, String inputDay){
         OutputView.printTotal(total);
         getPresent(total);
         AllDiscount(input,inputDay);
         OutputView.printDiscount(christmasDiscount, weekendDiscount, weekdayDiscount, specialDiscount, present);
         totalDiscount();
+        OutputView.printTotalCost(totalDiscount,total,present);
     }
     public void totalDiscount(){
         totalDiscount = christmasDiscount+weekdayDiscount+weekendDiscount+specialDiscount;
         if(present){
             totalDiscount+=25000;
         }
-
+        OutputView.printTotalDiscount(totalDiscount);
     }
     public boolean getPresent(int total){
         present = false;
