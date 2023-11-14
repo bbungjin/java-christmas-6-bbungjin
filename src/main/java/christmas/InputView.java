@@ -8,8 +8,19 @@ import java.util.List;
 
 public class InputView {
     public int readDate() {
-        System.out.println("12월 중 식당 예상 방문 날짜는 언제인가요? (숫자만 입력해 주세요!)");
-        String input = Console.readLine();
+        String input;
+        while(true){
+            try {
+                System.out.println("12월 중 식당 예상 방문 날짜는 언제인가요? (숫자만 입력해 주세요!)");
+                input = Console.readLine();
+                if(!(Integer.parseInt(input)>=1 && Integer.parseInt(input)<=31)){
+                    throw new IllegalArgumentException();
+                }
+                break;
+            } catch (IllegalArgumentException e){
+                System.err.println("[ERROR] 유효하지 않은 날짜입니다. 다시 입력해 주세요.");
+            }
+        }
         String[] day = {"목","금","토","일","월","화","수"};
         String inputDay = day[Integer.parseInt(input)% 7];
         Discount discount = new Discount();
