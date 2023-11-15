@@ -4,14 +4,19 @@ import java.util.HashMap;
 import java.util.List;
 
 public class OutputView {
+    HashMap<String, Integer> menuMap;
     public HashMap<String, Integer> printMenu(List<String> menu) {
         System.out.println("<주문 메뉴>");
-        HashMap<String, Integer> menuMap = setHash(menu);
+        //menuMap = setHash(menu);
         for (HashMap.Entry<String, Integer> entry : menuMap.entrySet()) {
             System.out.println(entry.getKey() + " " + entry.getValue()+"개");
         }
         System.out.println();
         return menuMap;
+    }
+    static void printPreview(int day){
+        System.out.println("12월 "+day+"일에 우테코 식당에서 받을 이벤트 해택 미리보기!");
+        System.out.println();
     }
     public HashMap<String, Integer> setHash(List<String> menu){
         HashMap<String, Integer> menuMap = new HashMap<>();
@@ -20,7 +25,7 @@ public class OutputView {
             String menuIdx = parts[0];
             int count = Integer.parseInt(parts[1]);
             menuMap.put(menuIdx,count);
-        }
+            }
         return menuMap;
     }
     static void printTotal(int total){

@@ -12,10 +12,11 @@ public class Discount {
     int total=0;
     boolean present=false;
     int totalDiscount=0;
+    int day;
+    String inputDay;
     HashMap<String, Integer> cost = new HashMap<>();
     HashMap<String, Integer> menuMap = new HashMap<>();
-    public void AllDiscount(String input, String inputDay){
-        int day = Integer.valueOf(input);
+    public void AllDiscount(){
         ChristmasDiscount(day);
         if((inputDay == "금") || (inputDay=="토")){
             WeekendDiscount();
@@ -58,21 +59,29 @@ public class Discount {
     public void SpecialDiscount(){
         this.specialDiscount+=1000;
     }
-    public void TotalAmount(HashMap<String, Integer> menuMap,String input, String inputDay){
-        this.menuMap = menuMap;
+    public boolean TotalAmount(HashMap<String, Integer> menuMap,String input, String inputDay){
         CostBoard();
+        this.menuMap = menuMap;
+        day = Integer.parseInt(input);
+        this.inputDay = inputDay;
         for(String item : menuMap.keySet()){
             if(cost.containsKey(item)){
                 total += (cost.get(item) * menuMap.get(item));
             }
-            // 메뉴에 없는 주문 예외처리
+            try{
+                if(!cost.containsKey(item))
+                    throw new IllegalArgumentException();
+            } catch (IllegalArgumentException e){
+                System.err.println("[ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요");
+                return false;
+            }
         }
-        calculate(input,inputDay);
+        return true;
     }
-    public void calculate(String input, String inputDay){
+    public void calculate(){
         OutputView.printTotal(total);
         getPresent(total);
-        AllDiscount(input,inputDay);
+        AllDiscount();
         OutputView.printDiscount(christmasDiscount, weekendDiscount, weekdayDiscount, specialDiscount, present);
         totalDiscount();
         OutputView.printTotalCost(totalDiscount,total,present);
