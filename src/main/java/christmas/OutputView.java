@@ -5,7 +5,7 @@ import java.util.List;
 
 public class OutputView {
     HashMap<String, Integer> menuMap;
-    public HashMap<String, Integer> printMenu(List<String> menu) {
+    static HashMap<String, Integer> printMenu(HashMap<String, Integer> menuMap) {
         System.out.println("<주문 메뉴>");
         //menuMap = setHash(menu);
         for (HashMap.Entry<String, Integer> entry : menuMap.entrySet()) {

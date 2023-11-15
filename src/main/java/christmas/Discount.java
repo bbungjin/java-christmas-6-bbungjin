@@ -79,6 +79,8 @@ public class Discount {
         return true;
     }
     public void calculate(){
+        OutputView.printPreview(day);
+        OutputView.printMenu(menuMap);
         OutputView.printTotal(total);
         getPresent(total); // 증정품을 받을 수 있는지 없는지
         if(total>=10000){
@@ -103,6 +105,9 @@ public class Discount {
         }
         OutputView.printPresent(present);
         return present;
+    }
+    public boolean overQuantiy(){
+        return (menuMap.size()>20);
     }
     public boolean onlyBeverage(){
         int beverage=0;
