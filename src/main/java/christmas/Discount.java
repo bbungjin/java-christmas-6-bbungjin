@@ -104,6 +104,16 @@ public class Discount {
         OutputView.printPresent(present);
         return present;
     }
+    public boolean onlyBeverage(){
+        int beverage=0;
+        if(menuMap.containsKey("제로콜라"))
+            beverage+=1;
+        if(menuMap.containsKey("레드와인"))
+            beverage+=1;
+        if(menuMap.containsKey("샴페인"))
+            beverage+=1;
+        return beverage == menuMap.size();
+    }
     public void CostBoard(){
         cost.put("양송이수프",6000);
         cost.put("타파스",5500);

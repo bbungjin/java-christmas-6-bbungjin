@@ -14,8 +14,12 @@ public class Application {
             List<String> a = input.readMenu();
             HashMap<String,Integer> idx = output.setHash(a);
             boolean test = discount.TotalAmount(idx, input.input, input.inputDay);
-            if(test)
-                break;
+            if(test){
+                if(discount.onlyBeverage())
+                    System.err.println("[ERROR] 음료만 주문할 수 없습니다.");
+                if(!discount.onlyBeverage())
+                    break;
+            }
         }
         discount.calculate();
     }
