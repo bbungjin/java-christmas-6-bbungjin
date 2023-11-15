@@ -58,12 +58,17 @@ public class OutputView {
             System.out.println("특별 할인: -"+str+"원");
         } if(present)
             System.out.println("증정 이벤트: -25,000원");
+        if(christmasDiscount+weekendDiscount+weekdayDiscount+specialDiscount == 0)
+            System.out.println("없음");
     }
     static void printTotalDiscount(int totalDiscount){
         System.out.println();
         System.out.println("<총혜택 금액>");
         String str = String.format("%,d",totalDiscount);
-        System.out.println("-"+str+"원");
+        if(totalDiscount !=0)
+            System.out.println("-"+str+"원");
+        if(totalDiscount ==0)
+            System.out.println("0원");
         System.out.println();
     }
     static void printTotalCost(int totalDiscount, int total, boolean present){

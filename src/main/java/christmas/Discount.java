@@ -80,9 +80,11 @@ public class Discount {
     }
     public void calculate(){
         OutputView.printTotal(total);
-        getPresent(total);
-        AllDiscount();
-        OutputView.printDiscount(christmasDiscount, weekendDiscount, weekdayDiscount, specialDiscount, present);
+        getPresent(total); // 증정품을 받을 수 있는지 없는지
+        if(total>=10000){
+            AllDiscount(); // discount 계산
+        }
+        OutputView.printDiscount(christmasDiscount, weekendDiscount, weekdayDiscount, specialDiscount, present); // <혜택 내역>
         totalDiscount();
         OutputView.printTotalCost(totalDiscount,total,present);
         OutputView.printBadge(totalDiscount);
